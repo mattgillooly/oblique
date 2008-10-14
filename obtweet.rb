@@ -12,15 +12,12 @@ class Array
   end
 end
 
-config_filename = 'twitter.yml'
+config_filename = File.join(File.dirname(__FILE__), 'twitter.yml')
 twitter = Twitter::Client.from_config(config_filename)
 
-strategies_filename = 'strategies.yml'
-strategies_filename = ARGV.last unless ARGV.empty?
+strategies_filename = !ARGV.empty? ? ARGV.last : File.join(File.dirname(__FILE__), 'strategies.yml')
+strategies = YAML::load_file(strategies_filename)
 
-strategies = YAML::load(open(strategies_filename))
 status = strategies.random
 puts status
-
 message = twitter.status(:post, status)
-

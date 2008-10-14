@@ -22,7 +22,7 @@ end
 config_filename = File.join(File.dirname(__FILE__), 'twitter.yml')
 twitter = Twitter::Client.from_config(config_filename)
 
-strategies_filename = !ARGV.empty? ? ARGV.last : File.join(File.dirname(__FILE__), 'strategies.yml')
+strategies_filename = ARGV.last || File.join(File.dirname(__FILE__), 'strategies.yml')
 strategies = YAML::load_file(strategies_filename)
 
 status = strategies.random

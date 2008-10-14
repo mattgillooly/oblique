@@ -12,6 +12,12 @@ class Array
   end
 end
 
+class File
+  def self.in_this_dir(fname)
+    File.join(File.dirname(__FILE__), fname)
+  end
+end
+
 Twitter::Client.configure do |conf|
   conf.application_name = 'oblique'
   conf.application_url = 'http://twitter.com/oblique'
@@ -19,10 +25,10 @@ Twitter::Client.configure do |conf|
   conf.source = 'oblique'
 end
 
-config_filename = File.join(File.dirname(__FILE__), 'twitter.yml')
+config_filename = File.in_this_dir('twitter.yml')
 twitter = Twitter::Client.from_config(config_filename)
 
-strategies_filename = ARGV.last || File.join(File.dirname(__FILE__), 'strategies.yml')
+strategies_filename = ARGV.last || File.in_this_dir('strategies.yml')
 strategies = YAML::load_file(strategies_filename)
 
 status = strategies.random

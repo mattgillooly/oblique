@@ -2,9 +2,14 @@
 
 require 'rubygems'
 require 'yaml'
+gem 'twitter4r'
 require 'twitter'
+require 'twitter/core'
 require 'twitter/console'
+require 'twitter/config'
 require 'time'
+
+BOT_NAME = ARGV.last || 'oblique'
 
 class Array
   def random
@@ -25,12 +30,21 @@ Twitter::Client.configure do |conf|
   conf.source = 'oblique'
 end
 
-config_filename = File.in_this_dir('twitter.yml')
-twitter = Twitter::Client.from_config(config_filename)
+case BOT_NAME
+when 'oblique':
+  config_filename = File.in_this_dir('twitter.yml')
+  twitter = Twitter::Client.from_config(config_filename)
 
-strategies_filename = ARGV.last || File.in_this_dir('strategies.yml')
-strategies = YAML::load_file(strategies_filename)
+  strategies_filename = File.in_this_dir('strategies.yml')
+  strategies = YAML::load_file(strategies_filename)
+  status = strategies.random
+when 'twandal'
+  config_filename = File.in_this_dir('twandal.yml')
+  twitter = Twitter::Client.from_config(config_filename)
 
-status = strategies.random
+  require 'twandal.rb'
+  status = Twandal.generate_status
+end
+  
 puts status
 message = twitter.status(:post, status)

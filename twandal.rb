@@ -22,6 +22,7 @@ module Twandal
   end
 
   def self.search_and_replace(t1, t2)
+    puts "replacing #{t1} with #{t2}"
     a = self.tweet_search(t1)
     a.map{|ss| ss.gsub(/#{t1}/i, t2)}
   end
@@ -31,6 +32,6 @@ module Twandal
     a = trends.random
     trends.delete(a)
     b = trends.random
-    search_and_replace(a, b).random
+    search_and_replace(a, b).reject{|s| s.length < 40}.random
   end
 end

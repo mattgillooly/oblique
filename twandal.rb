@@ -2,12 +2,25 @@ require 'open-uri'
 require 'json'
 require 'cgi'
 
+  
 class Array
   def random
     self[Kernel.rand(length)]
   end
-end
 
+  def search_and_replace(t1, t2)
+    puts "replacing #{t1} with #{t2}"
+    self.map{|ss| ss.gsub(/#{t1}/i, t2)}
+  end
+
+  def filter_length(min_length = 40)
+    self.reject{|s| s.length < min_length}
+  end
+
+  def filter_terms(terms)
+    self.reject{|s| terms.detect{|t| s.match(/#{t}/i) }}
+  end
+end
 
 module Twandal
   def self.twitter_trends
@@ -23,15 +36,14 @@ module Twandal
 
   def self.search_and_replace(t1, t2)
     puts "replacing #{t1} with #{t2}"
-    a = self.tweet_search(t1)
+
     a.map{|ss| ss.gsub(/#{t1}/i, t2)}
   end
 
   def self.generate_status
     trends = twitter_trends
-    a = trends.random
-    trends.delete(a)
-    b = trends.random
-    search_and_replace(a, b).reject{|s| s.length < 40}.random
+    a = trends.delete(trends.random)
+    b = trends.delete(trends.random)
+    tweet_search(a).filter_length.filter_terms(trends).search_and_replace(a,b).random
   end
 end

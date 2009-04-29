@@ -9,7 +9,6 @@ class Array
   end
 
   def search_and_replace(t1, t2)
-    puts "replacing #{t1} with #{t2}"
     self.map{|ss| ss.gsub(/#{t1}/i, t2)}
   end
 
@@ -32,12 +31,6 @@ module Twandal
   def self.tweet_search(q)
     doc = JSON.parse(open("http://search.twitter.com/search.json?q=#{CGI.escape(q)}").read)
     doc["results"].map{|h| h["text"]}
-  end
-
-  def self.search_and_replace(t1, t2)
-    puts "replacing #{t1} with #{t2}"
-
-    a.map{|ss| ss.gsub(/#{t1}/i, t2)}
   end
 
   def self.generate_status

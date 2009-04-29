@@ -23,7 +23,7 @@ end
 
 module Twandal
   def self.twitter_trends
-    d = open('http://search.twitter.com/trends/current.json')
+    d = open('http://search.twitter.com/trends/current.json?exclude=hashtags')
     doc = JSON.parse(d.read)
     doc["trends"].values.first.map{|h| h["name"]}
   end

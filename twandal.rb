@@ -2,7 +2,7 @@ require 'open-uri'
 require 'json'
 require 'cgi'
 
-  
+
 class Array
   def random
     self[Kernel.rand(length)]

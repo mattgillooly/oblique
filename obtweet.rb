@@ -45,6 +45,6 @@ when 'twandal'
   require 'twandal.rb'
   status = Twandal.generate_status
 end
-  
+
 puts status
 message = twitter.status(:post, status)

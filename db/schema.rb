@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(:version => 20120609214540) do
   create_table "tweets", :force => true do |t|
     t.integer  "user_id",    :null => false
     t.string   "text",       :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "tweets", ["user_id"], :name => "index_tweets_on_user_id"
@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(:version => 20120609214540) do
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

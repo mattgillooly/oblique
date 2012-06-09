@@ -1,4 +1,6 @@
 Oblique::Application.routes.draw do
+  resources :tweets, only: [:index, :create]
+
   root to: 'welcome#index'
 
   match 'auth/:provider/callback', to: 'sessions#create'

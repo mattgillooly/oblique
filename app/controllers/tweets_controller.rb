@@ -8,6 +8,8 @@ class TweetsController < ApplicationController
 
   def create
     @tweet = current_user.tweets.create(params[:tweet])
+
+    redirect_to tweets_path
   end
 
 private

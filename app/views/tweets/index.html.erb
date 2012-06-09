@@ -1,1 +1,10 @@
-asdf
+<% @tweets.each do |tweet| %>
+  <div class="tweet">
+    <p><%= tweet.text %></p>
+  </div>
+<% end %>
+
+<%= form_for :tweet do |f| %>
+  <%= f.text_area :text %>
+  <%= f.submit 'Add Tweet' %>
+<% end %>

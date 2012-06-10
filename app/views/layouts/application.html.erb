@@ -17,9 +17,9 @@
 
         <div class="btn-group pull-right open">
           <% if current_user %>
-            <a class="btn" data-toggle="dropdown" href="#">
+            <%= link_to "http://twitter.com/#{current_user.name}", class: "btn" do %>
               <i class="icon-user"></i> <%= current_user.name %>
-            </a>
+            <% end %>
             <%= link_to "Sign Out", signout_path, class: 'btn' %>
           <% else %>
             <%= link_to "Sign in with Twitter", "/auth/twitter", class: 'btn' %>

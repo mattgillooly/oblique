@@ -1,5 +1,5 @@
 Oblique::Application.routes.draw do
-  resources :tweets, only: [:index, :create]
+  resources :tweets, except: :show
 
   root to: 'welcome#index'
 

@@ -8,14 +8,31 @@
 </head>
 <body>
 
-  <% if current_user %>
-    Signed in as <%= current_user.name %>!
-    <%= link_to "Sign out", signout_path %>
-  <% else %>
-    <%= link_to "Sign in with Twitter", "/auth/twitter" %>
-  <% end %>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="#">
+          Oblique Wisdom
+        </a>
 
-  <%= yield %>
+        <div class="btn-group pull-right open">
+          <% if current_user %>
+            <a class="btn" data-toggle="dropdown" href="#">
+              <i class="icon-user"></i> <%= current_user.name %>
+            </a>
+            <%= link_to "Sign Out", signout_path, class: 'btn' %>
+          <% else %>
+            <%= link_to "Sign in with Twitter", "/auth/twitter", class: 'btn' %>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <%= yield %>
+  </div>
 
 </body>
 </html>

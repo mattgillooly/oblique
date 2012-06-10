@@ -1,2 +1,9 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<div class="hero-unit">
+  <h1>Random Tweets on a Regular Basis</h1>
+  <p>Enter a list of tweets in advance.  Once an hour, we'll pick one at random and post it to your Twitter account.  It's great for sharing motivational pokes, inspirational quotes, or hilarious jokes.</p>
+  <p>
+    <%= link_to "/auth/twitter", class: 'btn btn-primary btn-large' do %>
+      Sign in with Twitter to Learn more
+    <% end %>
+  </p>
+</div>

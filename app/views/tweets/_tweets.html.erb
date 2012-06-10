@@ -1,0 +1,23 @@
+<div id="tweets">
+  <h2>Your Tweets</h2>
+
+  <%= form_for @tweet do |f| %>
+    <%= f.text_field :text, size: 80 %>
+    <%= f.submit nil, :class => 'btn btn-primary btn-small pull-right' %>
+  <% end %>
+
+  <% @tweets.each do |tweet| %>
+    <div class="tweet">
+      <%= tweet.text %>
+      <div class="pull-right">
+        <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                    edit_tweet_path(tweet), :class => 'btn btn-mini' %>
+        <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                    tweet_path(tweet),
+                    :method => :delete,
+                    :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                    :class => 'btn btn-mini btn-danger' %>
+      </div>
+    </div>
+  <% end %>
+</div>

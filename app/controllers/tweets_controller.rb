@@ -4,6 +4,7 @@ class TweetsController < ApplicationController
 
   def index
     @tweets = current_user.tweets
+    @tweet = Tweet.new #current_user.tweets.build(params[:tweet])
   end
 
   def new

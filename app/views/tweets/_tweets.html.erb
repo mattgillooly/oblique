@@ -1,11 +1,6 @@
 <div id="tweets">
   <h2>Your Tweets</h2>
 
-  <%= form_for @tweet do |f| %>
-    <%= f.text_field :text, size: 80 %>
-    <%= f.submit nil, :class => 'btn btn-primary btn-small pull-right' %>
-  <% end %>
-
   <% @tweets.each do |tweet| %>
     <div class="tweet">
       <%= tweet.text %>

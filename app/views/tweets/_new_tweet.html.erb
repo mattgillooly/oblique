@@ -1,0 +1,6 @@
+<div id="add_tweet">
+  <%= form_for @tweet do |f| %>
+    <%= f.text_field :text, size: 80 %>
+    <%= f.submit nil, :class => 'btn btn-primary btn-small' %>
+  <% end %>
+</div>

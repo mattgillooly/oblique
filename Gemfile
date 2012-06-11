@@ -26,3 +26,4 @@ end
 
 gem 'pg'
 gem 'omniauth-twitter', '~> 0.0.11'
+gem 'backbone-on-rails'

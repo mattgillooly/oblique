@@ -1,10 +1,18 @@
 class TweetsController < ApplicationController
 
+  respond_to :html
+  respond_to :json, only: :index
+
   before_filter :authenticate
 
   def index
     @tweets = current_user.tweets
-    @tweet = Tweet.new #current_user.tweets.build(params[:tweet])
+    @tweet = Tweet.new
+
+    respond_to do |format|
+      format.js { render json: @tweets }
+      format.html
+    end
   end
 
   def new

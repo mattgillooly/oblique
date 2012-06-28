@@ -3,7 +3,9 @@ window.Oblique =
   Collections: {}
   Views: {}
   Routers: {}
-  init: -> alert 'Hello from Backbone!'
+  init: -> 
+    new Oblique.Routers.Tweets()
+    Backbone.history.start();
 
 $(document).ready ->
   Oblique.init()

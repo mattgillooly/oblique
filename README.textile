@@ -1,7 +1,0 @@
-h1. Welcome to Obtweet
-
-This is the Ruby code that powers "http://twitter.com/oblique":http://twitter.com/oblique.  Very simple code that you can use to post a randomly chosen message to a Twitter account, for instance from a list of your favorite quotes.  You should only need to modify the .yml files and create a cron job to run the script periodically.
-
-*Update 9/26/08:* Using "Twitter4R gem":http://twitter4r.rubyforge.org/, and moving Twitter acct info into twitter.yml file.
-
-*Update 4/20/09:* Now powers a new Twitter bot at "http://twitter.com/twandal":http://twitter.com/twandal, which pulls recent public tweets that contain trending terms, replaces those terms with randomly-picked ones, and re-tweets the mangled version.  This functionality was pretty much hacked on w/ the minimum of consideration, but eventually I'll devise a kind of plugin system to make it easy to add generic bots.

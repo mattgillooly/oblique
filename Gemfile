@@ -20,6 +20,8 @@ group :test do
   gem 'cucumber'
   gem 'cucumber-rails'
   gem 'database_cleaner'
+  gem 'capybara'
+  gem 'selenium-webdriver'
 
   gem 'turn', '0.8.2', :require => false
 end

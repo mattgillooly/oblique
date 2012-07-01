@@ -8,6 +8,7 @@ group :assets do
 end
 
 gem 'twitter-bootstrap-rails'
+gem 'twitter'
 
 group :development, :test do 
   gem 'sqlite3'

@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
 
   has_many :tweets
 
+  scope :hourly_tweeters, where(tweet_hourly: true)
+
   def self.from_omniauth(auth)
     user = where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
 

@@ -5,6 +5,10 @@ describe PostTweets do
   let(:user) { stub(:user) }
   let(:text) { 'Hello Twitter' }
 
+  after do
+    PostTweets.delivery_method = :test
+  end
+
   it "posts a tweet" do
     PostTweets.delivery_method = :normal
 

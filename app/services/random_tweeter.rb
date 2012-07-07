@@ -1,7 +1,7 @@
 class RandomTweeter
 
   def post_tweets
-    User.find_each do |user|
+    User.hourly_tweeters.find_each do |user|
       post_random_quip_for_user(user)
     end
   end

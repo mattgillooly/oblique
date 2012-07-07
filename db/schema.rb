@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120701014719) do
+ActiveRecord::Schema.define(:version => 20120707194636) do
 
   create_table "tweets", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20120701014719) do
     t.datetime "updated_at"
     t.string   "oauth_token"
     t.string   "oauth_secret"
+    t.boolean  "tweet_hourly", :default => false, :null => false
   end
 
 end

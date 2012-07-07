@@ -6,7 +6,7 @@ describe RandomTweeter do
     user1 = stub(:user)
     user2 = stub(:user)
 
-    User.stub(:find_each).and_yield(user1).and_yield(user2)
+    User.stub_chain(:hourly_tweeters, :find_each).and_yield(user1).and_yield(user2)
 
     subject.should_receive(:post_random_quip_for_user).with(user1)
     subject.should_receive(:post_random_quip_for_user).with(user2)

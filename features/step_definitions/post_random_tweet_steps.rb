@@ -6,6 +6,11 @@ Given /^I have added quips to my account$/ do
   }
 end
 
+Given /^I have enabled hourly tweets$/ do
+  #TODO: hook up to UI
+  User.first.update_attribute(:tweet_hourly, true)
+end
+
 Given /^I have connected my Twitter account$/ do
   # no-op for now, while all sign-ins are via Twitter
 end

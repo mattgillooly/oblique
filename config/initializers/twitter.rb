@@ -4,3 +4,7 @@ Twitter.configure do |config|
   config.oauth_token = ENV['OBLIQUE_TWITTER_OAUTH_TOKEN']
   config.oauth_token_secret = ENV['OBLIQUE_TWITTER_OAUTH_SECRET']
 end
+
+if Rails.env.test?
+  PostTweets.delivery_method = :test
+end

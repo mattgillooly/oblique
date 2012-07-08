@@ -1,0 +1,5 @@
+<div class="hero-unit" id="randomQuip">
+  <h1>Your quips could be here!</h1>
+</div>
+
+<a class="btn btn-large" href="#manage">Manage</a>

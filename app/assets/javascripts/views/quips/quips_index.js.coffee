@@ -6,6 +6,7 @@ class Oblique.Views.QuipsIndex extends Backbone.View
     'submit #new_quip': 'createQuip'
 
   initialize: ->
+    @settings = @options.settings
     @collection.on('reset', @render, this)
     @collection.on('add', @appendQuip, this)
 
@@ -16,9 +17,7 @@ class Oblique.Views.QuipsIndex extends Backbone.View
     this
 
   renderSettings: ->
-    settings = new Oblique.Models.Settings()
-    settings.fetch()
-    view = new Oblique.Views.Settings(model: settings)
+    view = new Oblique.Views.Settings(model: @settings)
     @$('#settings_container').html(view.render().el)
 
   appendQuip: (quip) ->

@@ -6,6 +6,7 @@ Feature: Create tweet
 
   Scenario: First tweet
     Given I am a signed in user
-    When I enter a tweet
+    When I go to manage my quipset
+    And I enter a tweet
     Then it is added to the list
 

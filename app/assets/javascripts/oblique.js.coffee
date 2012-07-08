@@ -5,7 +5,6 @@ window.Oblique =
   Routers: {}
   init: -> 
     new Oblique.Routers.Tweets()
-    new Oblique.Routers.Settings()
     Backbone.history.start();
 
 $(document).ready ->

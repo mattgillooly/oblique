@@ -1,38 +1,19 @@
 class QuipsController < ApplicationController
 
-  respond_to :html
-  respond_to :json, only: :index
+  respond_to :json
 
   before_filter :authenticate
 
   def index
-    @quips = current_user.quips
-
-    respond_to do |format|
-      format.js { render json: @quips }
-      format.html
-    end
-  end
-
-  def new
-    @quip = current_user.quips.build(params[:quip])
+    respond_with(@quips = current_user.quips)
   end
 
   def create
-    @quip = current_user.quips.create(params[:quip])
-
-    redirect_to quips_path
+    respond_with(@quip = current_user.quips.create(params[:quip]))
   end
 
-  def edit
-    @quip = current_user.quip.find(params[:id])
-  end
-
-  def update
-    @quip = current_user.quips.find(params[:id])
-    @quip.update_attributes(params[:quip])
-
-    redirect_to quips_path
+  def show
+    respond_with(@quip = current_user.quips.find(params[:id]))
   end
 
 end

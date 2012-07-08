@@ -2,11 +2,7 @@ require 'spec_helper'
 
 describe SettingsController do
 
-  let(:current_user) { stub(:user) }
-
-  before do
-    controller.stub(:current_user).and_return(current_user)
-  end
+  include_context "logged-in user"
 
   it "gets the current user's settings" do
     settings = stub(:settings, as_json: 'foo')

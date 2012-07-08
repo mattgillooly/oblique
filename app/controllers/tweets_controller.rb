@@ -36,13 +36,4 @@ class TweetsController < ApplicationController
     redirect_to tweets_path
   end
 
-private
-
-  def authenticate
-    unless current_user
-      redirect_to root_path
-      return false
-    end
-  end
-
 end

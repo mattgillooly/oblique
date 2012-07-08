@@ -12,7 +12,14 @@ class Oblique.Views.TweetsIndex extends Backbone.View
   render: ->
     $(@el).html(@template())
     @collection.each(@appendTweet)
+    @renderSettings()
     this
+
+  renderSettings: ->
+    settings = new Oblique.Models.Settings()
+    settings.fetch()
+    view = new Oblique.Views.Settings(model: settings)
+    @$('#settings_container').html(view.render().el)
 
   appendTweet: (tweet) ->
     view = new Oblique.Views.Tweet(model: tweet)

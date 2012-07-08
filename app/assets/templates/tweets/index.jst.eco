@@ -5,6 +5,9 @@
       <input type="submit" value="Add" class="btn btn-primary btn-small" />
     </form>
   </div>
+
+  <div id="settings_container">
+  </div>
 </div>
 
 <h2>Your Tweets</h2>

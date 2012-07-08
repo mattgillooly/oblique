@@ -13,3 +13,4 @@ class Oblique.Routers.Tweets extends Backbone.Router
 
   show: (id) ->
     alert "Entry #{id}"
+    $('#tweets_container').html(view.render().el)

@@ -36,4 +36,14 @@ class User < ActiveRecord::Base
     end
   end
 
+  # below pattern from https://github.com/rails/rails/commit/14fc8b34521f8354a17e50cd11fa3f809e423592
+  def settings
+    @settings ||= Settings.new(tweet_hourly)
+  end
+
+  def settings=(settings)
+    self[:tweet_hourly] = settings.tweet_hourly
+    @settings = settings
+  end
+
 end

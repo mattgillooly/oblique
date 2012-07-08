@@ -1,17 +1,17 @@
-class Oblique.Views.TweetsIndex extends Backbone.View
+class Oblique.Views.QuipsIndex extends Backbone.View
 
-  template: JST['tweets/index']
+  template: JST['quips/index']
 
   events:
-    'submit #new_tweet': 'createTweet'
+    'submit #new_quip': 'createQuip'
 
   initialize: ->
     @collection.on('reset', @render, this)
-    @collection.on('add', @appendTweet, this)
+    @collection.on('add', @appendQuip, this)
 
   render: ->
     $(@el).html(@template())
-    @collection.each(@appendTweet)
+    @collection.each(@appendQuip)
     @renderSettings()
     this
 
@@ -21,16 +21,16 @@ class Oblique.Views.TweetsIndex extends Backbone.View
     view = new Oblique.Views.Settings(model: settings)
     @$('#settings_container').html(view.render().el)
 
-  appendTweet: (tweet) ->
-    view = new Oblique.Views.Tweet(model: tweet)
-    @$('#tweets').append(view.render().el)
+  appendQuip: (quip) ->
+    view = new Oblique.Views.Quip(model: quip)
+    @$('#quips').append(view.render().el)
 
-  createTweet: (event) ->
+  createQuip: (event) ->
     event.preventDefault()
-    attributes = text: $('#tweet_text').val()
+    attributes = text: $('#quip_text').val()
     @collection.create attributes,
       wait: true
-      success: -> $('#new_tweet')[0].reset()
+      success: -> $('#new_quip')[0].reset()
       error: @handleError
 
   handleError: (entry, response) ->

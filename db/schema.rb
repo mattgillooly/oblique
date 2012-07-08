@@ -11,16 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120707194636) do
+ActiveRecord::Schema.define(:version => 20120708004719) do
 
-  create_table "tweets", :force => true do |t|
+  create_table "quips", :force => true do |t|
     t.integer  "user_id",    :null => false
     t.string   "text",       :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "tweets", ["user_id"], :name => "index_tweets_on_user_id"
+  add_index "quips", ["user_id"], :name => "index_tweets_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "provider"

@@ -7,9 +7,9 @@ class RandomTweeter
   end
 
   def post_random_quip_for_user(user)
-    tweets = user.tweets
-    tweet = tweets[rand(tweets.count)]
-    PostTweets.new.post(user, tweet.text)
+    quips = user.quips
+    quip = quips[rand(quips.count)]
+    PostTweets.new.post(user, quip.text)
   end
 
 end

@@ -7,12 +7,12 @@ Given /^I am a signed in user$/ do
 end
 
 When /^I enter a tweet$/ do
-  @tweet_text = "This is my witty quote"
+  @quip_text = "This is my witty quote"
 
-  fill_in 'tweet_text', with: @tweet_text
+  fill_in 'quip_text', with: @quip_text
   click_button 'Add'
 end
 
 Then /^it is added to the list$/ do
-  should have_content @tweet_text
+  should have_content @quip_text
 end

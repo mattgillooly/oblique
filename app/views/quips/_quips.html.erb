@@ -1,14 +1,14 @@
-<div id="tweets_container">
-  <h2>Your Tweets</h2>
+<div id="quips_container">
+  <h2>Your Quips</h2>
 
-  <% [].each do |tweet| %>
-    <div class="tweet">
-      <%= tweet.text %>
+  <% [].each do |quip| %>
+    <div class="quip">
+      <%= quip.text %>
       <div class="pull-right">
         <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                    edit_tweet_path(tweet), :class => 'btn btn-mini' %>
+                    edit_quip_path(quip), :class => 'btn btn-mini' %>
         <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                    tweet_path(tweet),
+                    quip_path(quip),
                     :method => :delete,
                     :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
                     :class => 'btn btn-mini btn-danger' %>

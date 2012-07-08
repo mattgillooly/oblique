@@ -1,4 +1,4 @@
-class Tweet < ActiveRecord::Base
+class Quip < ActiveRecord::Base
   attr_accessible :text
 
   validates_presence_of :user, :text

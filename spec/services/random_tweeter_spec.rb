@@ -15,10 +15,10 @@ describe RandomTweeter do
   end
 
   it "posts a random tweet for a user" do
-    tweet = stub(:tweet, text: "Here comes tweets!")
-    user = stub(:user, tweets: [tweet])
+    quip = stub(:tweet, text: "Super wise words!")
+    user = stub(:user, quips: [quip])
 
-    PostTweets.any_instance.should_receive(:post).with(user, tweet.text)
+    PostTweets.any_instance.should_receive(:post).with(user, quip.text)
 
     subject.post_random_quip_for_user(user)
   end

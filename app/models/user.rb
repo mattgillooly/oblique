@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :name, :provider, :uid
 
-  has_many :tweets
+  has_many :quips
 
   scope :hourly_tweeters, where(tweet_hourly: true)
 

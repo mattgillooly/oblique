@@ -4,7 +4,7 @@ window.Oblique =
   Views: {}
   Routers: {}
   init: -> 
-    new Oblique.Routers.Tweets()
+    new Oblique.Routers.Quips()
     Backbone.history.start();
 
 $(document).ready ->

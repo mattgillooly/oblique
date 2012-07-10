@@ -7,7 +7,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails', '2.0.8'
 gem 'twitter'
 
 group :development, :test do 
@@ -24,6 +24,7 @@ group :test do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'selenium-webdriver'
+  gem 'poltergeist'
 
   gem 'turn', '0.8.2', :require => false
 end

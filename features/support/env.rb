@@ -62,10 +62,8 @@ require 'cucumber/formatter/unicode'
 require 'capybara'
 require 'capybara/dsl'
 require "capybara/cucumber"
+require 'capybara/poltergeist'
 
-Capybara.default_driver = :selenium
-Capybara.register_driver :selenium do |app|
-  Capybara::Selenium::Driver.new(app, browser: :firefox)
-end
+Capybara.default_driver = :poltergeist
 
 World(Capybara)

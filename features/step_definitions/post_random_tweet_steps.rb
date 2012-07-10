@@ -11,6 +11,8 @@ When /^the hourly task to post tweets runs$/ do
 end
 
 Then /^one of my quips is tweeted on my behalf$/ do
+  wait_until { PostTweets.deliveries.present? }
+
   PostTweets.should have(1).deliveries
 
   d = PostTweets.deliveries.first

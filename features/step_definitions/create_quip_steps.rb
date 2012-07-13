@@ -2,7 +2,7 @@ When /^I go to manage my quipset$/ do
   click_link "Manage"
 end
 
-When /^I enter a tweet$/ do
+When /^I enter a quip$/ do
   @quip_text = "This is my witty quote"
 
   fill_in 'quip_text', with: @quip_text
@@ -17,8 +17,8 @@ Given /^I have added quips to my account$/ do
   steps %{
     Given I am a signed in user
     When I go to manage my quipset
-    And I enter a tweet
-    And I enter a tweet
+    And I enter a quip
+    And I enter a quip
   }
 end
 

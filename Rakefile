@@ -4,4 +4,15 @@
 
 require File.expand_path('../config/application', __FILE__)
 
+require 'guard/jasmine/task'
+Guard::JasmineTask.new
+
 Oblique::Application.load_tasks
+
+task :travis do
+  ["rspec spec", "rake guard:jasmine", "rake cucumber"].each do |cmd|
+    puts "Starting to run #{cmd}..."
+    system("export DISPLAY=:99.0 && bundle exec #{cmd}")
+    raise "#{cmd} failed!" unless $?.exitstatus == 0
+  end
+end

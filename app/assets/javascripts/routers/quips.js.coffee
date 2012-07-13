@@ -2,7 +2,6 @@ class Oblique.Routers.Quips extends Backbone.Router
   routes:
     '': 'random'
     'manage': 'index'
-    'quips/:id': 'show'
 
   initialize: ->
     @collection = new Oblique.Collections.Quips()
@@ -19,8 +18,4 @@ class Oblique.Routers.Quips extends Backbone.Router
     @collection.fetch()
     @settings.fetch()
     view = new Oblique.Views.QuipsIndex(collection: @collection, settings: @settings)
-    $('#quips_container').html(view.render().el)
-
-  show: (id) ->
-    alert "Entry #{id}"
     $('#quips_container').html(view.render().el)

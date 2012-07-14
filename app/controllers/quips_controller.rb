@@ -5,6 +5,8 @@ class QuipsController < ApplicationController
   before_filter :authenticate
 
   def index
+    puts "current_user: #{current_user.inspect}"
+
     respond_with(@quips = current_user.quips)
   end
 

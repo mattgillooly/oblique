@@ -12,3 +12,9 @@ test: &test
 
 cucumber:
   <<: *test
+
+# for TravisCI
+postgres:
+  adapter: postgresql
+  database: oblique_test
+  username: postgres

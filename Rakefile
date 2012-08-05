@@ -4,8 +4,10 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-require 'guard/jasmine/task'
-Guard::JasmineTask.new
+if Rails.env.test?
+  require 'guard/jasmine/task'
+  Guard::JasmineTask.new
+end
 
 Oblique::Application.load_tasks
 

@@ -11,6 +11,8 @@ When /^the hourly task to post tweets runs$/ do
 end
 
 Then /^one of my quips is tweeted on my behalf$/ do
+  puts "Using PostTweets.delivery_method: #{PostTweets.delivery_method}"
+
   wait_until { PostTweets.deliveries.present? }
 
   PostTweets.should have(1).deliveries

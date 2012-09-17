@@ -5,6 +5,7 @@ class PostTweets
   @@deliveries = []
 
   def post(user, text)
+    puts "PostTweets#post(#{user.inspect}, #{text})"
     if delivery_method == :test
       @@deliveries << [user, text]
     else

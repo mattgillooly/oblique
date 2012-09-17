@@ -10,7 +10,6 @@ When /^I enter a quip$/ do
 end
 
 Then /^it is added to the list$/ do
-  puts "Quips: #{Quip.all.inspect}"
   should have_content @quip_text
 end
 

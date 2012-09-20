@@ -124,7 +124,6 @@ GEM
     mime-types (1.19)
     multi_json (1.3.6)
     multipart-post (1.1.5)
-    newrelic_rpm (3.4.2.1)
     nokogiri (1.5.5)
     oauth (0.4.7)
     omniauth (1.1.1)
@@ -235,7 +234,6 @@ DEPENDENCIES
   guard-jasmine
   jasminerice
   jquery-rails
-  newrelic_rpm
   omniauth-twitter (~> 0.0.11)
   pg
   poltergeist

@@ -18,6 +18,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'guard-jasmine'
   gem 'jasminerice'
+  gem 'relish'
 end
 
 group :test do
